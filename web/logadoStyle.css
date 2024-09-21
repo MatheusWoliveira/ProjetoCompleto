@@ -1,0 +1,45 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #898686;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+header{
+    padding: 10px;
+    background-color: #00ff7f;
+}
+
+.top ul{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.top ul li a{
+    text-decoration: none;
+    color: black;
+}
+
+.top ul li a:hover{
+    color: white;
+}
+
+.top ul li:hover{
+    color: white;
+}
+
+li{
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.logo{
+    width: 30px;
+    height: 35px;
+}
+
+h1{
+    text-align: center;
+}

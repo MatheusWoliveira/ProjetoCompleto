@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="imagens/spotify.ico" type="image/x-icon">
+    <script src="scriptLogin.js" defer></script>
+    <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body>
+    <div class="form-container">
+        <div class="textos">
+            <h1><img src="imagens/spotify.png" alt="img-spotify">MusicTuning</h1>
+            <p>Bem vindo</p>
+        </div>
+        <form id="formulario-login" method="POST">
+            <label for="email-login">Email:</label>
+            <div class="form-inp">
+                <input type="email" id="email-login" name="email-login" required>
+            </div>
+            
+            <label for="senha-login">Senha:</label>
+            <div class="form-inp">
+                <input type="password" id="senha-login" name="senha-login" required>
+            </div>
+
+            <div id="msg-login"></div>
+            
+            
+            <button type="submit" id="submit-login">Entrar</button>
+            <div class="link">
+                <p><a href="index.html">Inscreva-se no Spotify</a></p>
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #898686;
+}
+
+.textos{
+    color: #00ff7f;
+}
+
+.form-container{
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 400px;
+    height: 472px;
+    padding: 25px;
+    background-color: #161616;
+    border-radius: 10px;
+}
+
+h1{
+    text-align: center;
+    line-height: 1;
+}
+
+#formulario-login{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label{
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 15px;
+    color: white;
+}
+
+.form-inp input{
+    padding: 11px 25px;
+    background: transparent;
+    border: 1px solid ;
+    line-height: 1;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* .form-inp input{
+    width: 100%;
+    background: none;
+    font-size: 13.4px;
+    color: #00ff7f; 
+    border: none;
+    padding: 0;
+    margin: 0;
+}  */
+
+button{
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #00ff7f;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+
+.link a{
+    text-decoration: none;
+    text-align: left;
+    color: white;
+}
+
+img{
+    width: 20px;
+    height: 25px;
+}
+
+#msg-login{
+    margin-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="imagens/spotify.ico" type="image/x-icon">
+    <script src="scriptCadastro.js" defer></script>
+    <link rel="stylesheet" href="pgCadastro.css">
+</head>
+<body>
+    <div class="form-container">
+      <div class="topo">
+        
+        <a href="pgLogin.html" class="link"><img src="imagens/login-de-usuario (4).png" alt="login" class="img-login"></a>
+
+        <h1><img src="imagens/spotify.png" alt="img-spotify"> Spotify</h1>
+      </div>
+        <form action="/api/register" id="formulario" method="POST" >
+          <label for="nome">Nome completo:</label>
+          <input type="text" id="nome" pattern="[^0-9]+" name="nome">
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="numero">Telefone:</label>
+          <input type="number" id="numero" name="numero" required>
+          
+          <label for="senha">Senha:</label>
+          <input type="password" id="senha" name="senha" required>
+          
+          <label for="confirmar-senha">Confirmação de senha:</label>
+          <input type="password" id="confirmar-senha" name="confirmar-senha" required>
+          
+          <button type="submit" id="submit">Cadastrar</button>
+        </form>
+        <div id="msg"></div>
+      </div>
+</body>
+</html>

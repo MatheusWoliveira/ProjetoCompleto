@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #898686;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .form-container h1{
+    text-align: center;
+  }
+
+  .form-container {
+    background-color: #161616;
+    color: white;
+    padding: 20px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background: transparent;
+    color: #00ff7f;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 10px 20px;
+    background-color: #00ff7f;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+    h1{
+      color: #00ff7f;
+      margin-left: 115px;
+    }
+
+    img{
+      width: 20px;
+      height: 25px;
+  }
+  
+    #msg{
+      margin-top: 15px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: red;
+    }
+
+    .form-container .link{
+      text-align: right;
+    }
+
+    .topo{
+      display: flex;
+    }
+
+    .link{
+      margin-top: 26px;
+    }
