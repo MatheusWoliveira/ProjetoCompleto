@@ -12,6 +12,17 @@ connectDB();
 app.use(express.json()); // Middleware para permitir a aplicação lidar com dados em JSON
 app.use(express.static(path.join(__dirname, 'web')));// Middleware para servir arquivos estáticos (como HTML, CSS, JS)
 
+// Redirecionar a raiz para pgLogin.html
+app.get('/', (req, res) => {
+    res.redirect('/login');
+});
+
+// Rota para exibir a página de login (pgLogin.html)
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web', 'login', 'pgLogin.ht.ml'));
+});
+
+
 // Rota para registro de usuário
 app.post('/api/register', async (req, res) => {
     const { nome, email, senha, telefone } = req.body;
@@ -70,7 +81,7 @@ app.post('/api/login', async (req, res) => {
 
         jwt.sign(payload, 'jwtSecret', { expiresIn: '1h' }, (err, token) => {
             if (err) throw err;
-            res.json({ token });
+            res.json({ token, redirect: '/logado/pgLogado.html'  });
         });
     } catch (err) {
         console.error(err.message);
