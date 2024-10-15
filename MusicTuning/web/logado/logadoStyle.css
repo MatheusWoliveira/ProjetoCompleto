@@ -43,3 +43,14 @@ li{
 h1{
     text-align: center;
 }
+
+.box-musicas{
+    display: flex;
+    justify-content: space-around;
+}
+
+.box-img{
+    display: block;
+}
+
+/* FALTA ALINHAR AS CAIXAS(IMG EM BAIXO DO TEXTO) */

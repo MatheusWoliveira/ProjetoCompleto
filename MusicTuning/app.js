@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 // Rota para exibir a página de login (pgLogin.html)
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'login', 'pgLogin.ht.ml'));
+    res.sendFile(path.join(__dirname, 'web', 'login', '/login/pgLogin.html'));
 });
 
 

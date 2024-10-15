@@ -137,7 +137,7 @@ document.getElementById('formulario').addEventListener('submit', async (e) => {
     const data = await response.json();
     if (response.ok) {
         alert(data.msg); // Mensagem de sucesso
-        window.location.href = 'pgLogin.html'; // Redireciona para a página de login
+        window.location.href = '/login/pgLogin.html'; // Redireciona para a página de login
     } else {
         document.getElementById('msg').textContent = data.msg; // Mensagem de erro
     }
