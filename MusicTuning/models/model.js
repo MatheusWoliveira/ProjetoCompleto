@@ -17,9 +17,16 @@ const UserSchema = new mongoose.Schema({
     },
     telefone: {
         type: String,
-        required: true,
-        unique: true
-    }
+        required: true
+    },
+    // isVerified: {
+    //     type: Boolean,
+    //     default: false
+    // },
+    // verificationToken: {
+    //     type: String,
+    //     default: null
+    // }
 });
 
 module.exports = mongoose.model('User', UserSchema);
