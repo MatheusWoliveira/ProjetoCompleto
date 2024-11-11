@@ -1,16 +1,19 @@
 // app.js
 const express = require('express');
-const connectDB = require('./database'); 
-const bcrypt = require('bcryptjs'); // Biblioteca para hashing(modo grosseiro: embaralhamento de senhas) de senhas
-const jwt = require('jsonwebtoken'); //Biblioteca para geração de tokens JWT
+const connectDB = require('./database'); // Conectando ao MongoDB através do módulo
+const bcrypt = require('bcryptjs'); // Biblioteca para hashing de senhas
+const jwt = require('jsonwebtoken'); // Biblioteca para geração de tokens JWT
 const User = require('./models/model'); 
-const path = require('path'); 
+const path = require('path');
+const nodemailer = require('nodemailer'); // Para enviar emails
 
 const app = express();
+
+// Conexão com o MongoDB (mantendo a conexão com o módulo)
 connectDB();
 
 app.use(express.json()); // Middleware para permitir a aplicação lidar com dados em JSON
-app.use(express.static(path.join(__dirname, 'web')));// Middleware para servir arquivos estáticos (como HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, 'web'))); // Middleware para servir arquivos estáticos (como HTML, CSS, JS)
 
 // Redirecionar a raiz para pgLogin.html
 app.get('/', (req, res) => {
@@ -19,16 +22,41 @@ app.get('/', (req, res) => {
 
 // Rota para exibir a página de login (pgLogin.html)
 app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web', 'login', '/login/pgLogin.html'));
+    res.sendFile(path.join(__dirname, 'web', 'login', 'pgLogin.html'));
 });
 
+// Função para enviar o email de confirmação
+const sendConfirmationEmail = (email, token) => {
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'your-email@gmail.com', // Insira o seu e-mail aqui
+            pass: 'your-email-password', // Insira a senha do seu e-mail aqui
+        },
+    });
+
+    const mailOptions = {
+        from: 'your-email@gmail.com', // Seu e-mail
+        to: email,
+        subject: 'Confirmação de Cadastro',
+        text: `Clique no link abaixo para confirmar o seu cadastro:\n\nhttp://localhost:5000/confirm/${token}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log('Erro ao enviar email:', error);
+        } else {
+            console.log('Email enviado:', info.response);
+        }
+    });
+};
 
 // Rota para registro de usuário
 app.post('/api/register', async (req, res) => {
     const { nome, email, senha, telefone } = req.body;
 
     try {
-        // Aqui está sendo feita a verificação de usuário com o email fornecido
+        // Verificando se o usuário já existe
         let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({ msg: 'Este email já está sendo usado' });
@@ -38,22 +66,61 @@ app.post('/api/register', async (req, res) => {
             nome,
             email,
             senha,
-            telefone
+            telefone,
+            isVerified: false, // Flag para verificar se o email foi confirmado
         });
 
-        // gerando um salt para hashing da senha
+        // Gerando um salt para hashing da senha
         const salt = await bcrypt.genSalt(10);
-        // Hashing da senha gerado
+        // Hashing da senha
         user.senha = await bcrypt.hash(senha, salt);
 
+        // Salvando o usuário no banco
         await user.save();
+
+        // Gerando um token para o e-mail de confirmação
+
+        // const token = jwt.sign(
+        //     { id: user._id },
+        //     'jwtSecret', 
+        //     { expiresIn: '15m' }
+        // );
+
+        // // Enviando e-mail de confirmação
+        // sendConfirmationEmail(email, token);
+
         console.log('Usuário registrado com sucesso:', user);
-        res.json({ msg: 'Você se cadastrou com sucesso !!' });
+        res.json({ msg: 'Você se cadastrou com sucesso!' });
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Erro no servidor');
     }
 });
+
+// Rota para confirmar o e-mail do usuário
+
+// app.get('/confirm/:token', async (req, res) => {
+//     const { token } = req.params;
+
+//     try {
+//         // Verificando o token
+//         const decoded = jwt.verify(token, 'jwtSecret');
+
+//         // Encontrando o usuário e marcando como verificado
+//         const user = await User.findById(decoded.id);
+//         if (!user) {
+//             return res.status(400).json({ msg: 'Usuário não encontrado!' });
+//         }
+
+//         user.isVerified = true;
+//         await user.save();
+
+//         res.json({ msg: 'Cadastro confirmado com sucesso! Agora você pode fazer login.' });
+//     } catch (err) {
+//         console.error(err.message);
+//         res.status(500).send('Erro no servidor');
+//     }
+// });
 
 // Rota para login de usuário
 app.post('/api/login', async (req, res) => {
@@ -66,22 +133,27 @@ app.post('/api/login', async (req, res) => {
             return res.status(400).json({ msg: 'Usuário não encontrado!' });
         }
 
-        const isMatch = await bcrypt.compare(senha, user.senha);
-        if (!isMatch) {
-            console.log('Senha incorreta');
-            return res.status(400).json({ msg: 'senha incorreta' });
+        // Verificando se o usuário está confirmado
+        if (!user.isVerified) {
+            return res.status(400).json({ msg: 'Confirme seu e-mail antes de fazer login. ' });
         }
 
-        // Define o payload do token JWT
-        const payload = {
+        const comparaSenha = await bcrypt.compare(senha, user.senha);
+        if (!comparaSenha) {
+            console.log('Senha incorreta');
+            return res.status(400).json({ msg: 'Senha incorreta' });
+        }
+
+        // Gerando o token JWT
+        const gerandoToken = {
             user: {
                 id: user.id
             }
         };
 
-        jwt.sign(payload, 'jwtSecret', { expiresIn: '1h' }, (err, token) => {
+        jwt.sign(gerandoToken, 'jwtSecret', { expiresIn: '15m' }, (err, token) => {
             if (err) throw err;
-            res.json({ token, redirect: '/logado/pgLogado.html'  });
+            res.json({ token, redirect: '/logado/pgLogado.html' });
         });
     } catch (err) {
         console.error(err.message);
