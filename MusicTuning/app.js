@@ -26,30 +26,40 @@ app.get('/login', (req, res) => {
 });
 
 // Função para enviar o email de confirmação
-const sendConfirmationEmail = (email, token) => {
-    const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'your-email@gmail.com', // Insira o seu e-mail aqui
-            pass: 'your-email-password', // Insira a senha do seu e-mail aqui
-        },
-    });
 
-    const mailOptions = {
-        from: 'your-email@gmail.com', // Seu e-mail
-        to: email,
-        subject: 'Confirmação de Cadastro',
-        text: `Clique no link abaixo para confirmar o seu cadastro:\n\nhttp://localhost:5000/confirm/${token}`,
-    };
+// const sendConfirmationEmail = (email, token) => {
+//     const transporter = nodemailer.createTransport({
+//         service: 'gmail',
+//         auth: {
+//             user: 'your-email@gmail.com', // Insira o seu e-mail aqui
+//             pass: 'your-email-password', // Insira a senha do seu e-mail aqui
+//         },
+//     });
 
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log('Erro ao enviar email:', error);
-        } else {
-            console.log('Email enviado:', info.response);
-        }
-    });
-};
+//     const mailOptions = {
+//         from: 'your-email@gmail.com', // Seu e-mail
+//         to: email,
+//         subject: 'Confirmação de Cadastro',
+//         text: `Clique no link abaixo para confirmar o seu cadastro:\n\nhttp://localhost:5000/confirm/${token}`,
+//     };
+
+//     transporter.sendMail(mailOptions, (error, info) => {
+//         if (error) {
+//             console.log('Erro ao enviar email:', error);
+//         } else {
+//             console.log('Email enviado:', info.response);
+//         }
+//     });
+// };
+
+
+
+
+///// TODOS CÓDIGOS PARA A CONFIRMAÇÃO DE SENHA ESTÁ COMENTADO , PARA NÃO INTERVIR O PROCESSO DE CADASTRO ANTERIOR !!!!!
+
+///// A CONFIRMARÇÃO SERÁ FEITA AGORA ATRÁVES DO TWILIO , SERÁ ENVIADO POR SMS !!    
+
+
 
 // Rota para registro de usuário
 app.post('/api/register', async (req, res) => {
@@ -67,7 +77,7 @@ app.post('/api/register', async (req, res) => {
             email,
             senha,
             telefone,
-            isVerified: false, // Flag para verificar se o email foi confirmado
+            // isVerified: false, // Flag para verificar se o email foi confirmado
         });
 
         // Gerando um salt para hashing da senha
@@ -133,10 +143,10 @@ app.post('/api/login', async (req, res) => {
             return res.status(400).json({ msg: 'Usuário não encontrado!' });
         }
 
-        // Verificando se o usuário está confirmado
-        if (!user.isVerified) {
-            return res.status(400).json({ msg: 'Confirme seu e-mail antes de fazer login. ' });
-        }
+        // // Verificando se o usuário está confirmado
+        // if (!user.isVerified) {
+        //     return res.status(400).json({ msg: 'Confirme seu e-mail antes de fazer login. ' });
+        // }
 
         const comparaSenha = await bcrypt.compare(senha, user.senha);
         if (!comparaSenha) {
