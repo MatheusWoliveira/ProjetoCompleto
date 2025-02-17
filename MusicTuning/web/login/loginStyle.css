@@ -2,27 +2,36 @@ body{
     display: flex;
     justify-content: center;
     text-align: center;
-    background-color: #898686;
+    background: rgb(44,12,51);
+    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
 }
 
 .textos{
-    color: #00ff7f;
+    color: white;
+    margin-top: 20px;
 }
 
 .form-container{
+    margin-top: 90px;
     display: grid;
     place-items: center;
     position: relative;
     width: 400px;
     height: 472px;
     padding: 25px;
-    background-color: #161616;
-    border-radius: 10px;
+    background: rgb(48,45,44);
+    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%);
+    border-radius: 15px;
 }
 
 h1{
     text-align: center;
     line-height: 1;
+}
+
+.bem-vindo{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
 }
 
 #formulario-login{
@@ -41,7 +50,7 @@ label{
 .form-inp input{
     padding: 11px 25px;
     background: transparent;
-    border: 1px solid ;
+    border: 1px solid;
     line-height: 1;
     border-radius: 8px;
     color: #ffffff;
@@ -59,12 +68,18 @@ label{
 
 button{
     margin-top: 15px;
-    padding: 10px;
-    border-radius: 15px;
-    background-color: #00ff7f;
+    padding: 11px;
+    border-radius: 12px;
+    border: 1px solid white;
+    background-color: white;
     color: black;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(5, 75, 5);
+    color: white;
 }
 
 .link a{
@@ -73,13 +88,13 @@ button{
     color: white;
 }
 
-img{
+/* img{
     width: 20px;
     height: 25px;
-}
+} */
 
 #msg-login{
     margin-top: 10px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: red;
+    color: black;
 }

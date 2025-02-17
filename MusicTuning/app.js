@@ -60,7 +60,6 @@ app.get('/login', (req, res) => {
 ///// A CONFIRMARÇÃO SERÁ FEITA AGORA ATRÁVES DO TWILIO , SERÁ ENVIADO POR SMS !!    
 
 
-
 // Rota para registro de usuário
 app.post('/api/register', async (req, res) => {
     const { nome, email, senha, telefone } = req.body;
