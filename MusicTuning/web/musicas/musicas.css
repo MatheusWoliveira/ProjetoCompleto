@@ -1,14 +1,16 @@
 body{
     padding: 0;
     margin: 0;
-    background-color: #898686;
+    background: rgb(44,12,51);
+    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
 header{
     padding: 10px;
-    background-color: #00ff7f;
+    background: rgb(48,45,44);
+    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%)
 }
 
 .top ul{
