@@ -36,11 +36,17 @@ body {
   input {
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid white;
+    border: none;
     border-radius: 5px;
-    background: transparent;
+    background: rgb(170,163,161);
+    background: rgb(170,163,161);
+    background: linear-gradient(90deg, rgba(170,163,161,1) 22%, rgba(255,255,255,1) 84%, rgba(161,151,151,1) 99%);
     color: white;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  input:hover{
+    background: linear-gradient(90deg, rgba(170,163,161,1) 22%, rgba(255,255,255,1) 70%, rgba(161,151,151,1) 99%);
   }
   
   button {

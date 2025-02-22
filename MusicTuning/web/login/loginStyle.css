@@ -49,11 +49,17 @@ label{
 
 .form-inp input{
     padding: 11px 25px;
-    background: transparent;
-    border: 1px solid;
+    background: rgb(170,163,161);
+    background: rgb(170,163,161);
+    background: linear-gradient(90deg, rgba(170,163,161,1) 70%, rgba(255,255,255,1) 84%, rgba(161,151,151,1) 99%);
+    border: none;
     line-height: 1;
     border-radius: 8px;
     color: #ffffff;
+}
+
+input:hover{
+    background: linear-gradient(90deg, rgba(170,163,161,1) 60%, rgba(255,255,255,1) 80%, rgba(161,151,151,1) 99%);
 }
 
 /* .form-inp input{
@@ -80,6 +86,7 @@ button{
 button:hover{
     background-color: rgb(5, 75, 5);
     color: white;
+    border: none;
 }
 
 .link a{
