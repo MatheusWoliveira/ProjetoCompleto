@@ -160,7 +160,7 @@ app.post('/api/login', async (req, res) => {
             }
         };
 
-        jwt.sign(gerandoToken, 'jwtSecret', { expiresIn: '15m' }, (err, token) => {
+        jwt.sign(gerandoToken, 'jwtSecret', { expiresIn: '1h' }, (err, token) => {
             if (err) throw err;
             res.json({ token, redirect: '/logado/pgLogado.html' });
         });

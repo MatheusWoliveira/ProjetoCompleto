@@ -14,8 +14,8 @@ document.getElementById('formulario-login').addEventListener('submit', async (e)
     const data = await response.json();
     if (response.ok) {
         alert('Login bem-sucedido');
-        window.location.href = data.redirect; // Redireciona para uma página protegida
+        window.location.href = data.redirect; 
     } else {
-        document.getElementById('msg-login').textContent = data.msg; // Mensagem de erro
+        document.getElementById('msg-login').textContent = data.msg;
     }
 });
