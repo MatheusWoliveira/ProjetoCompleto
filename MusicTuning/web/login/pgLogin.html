@@ -9,31 +9,42 @@
     <link rel="stylesheet" href="loginStyle.css">
 </head>
 <body>
-    <div class="form-container">
-        <div class="textos">
-            <h1>VillaMusic</h1>
-            <div class="bem-vindo"><p>Bem-vindo</p></div>
+    <div class="box1">
+        <div class="form-container">
+            <div class="logo">
+                <img src="/imagens/logo.png" alt="">
+            </div>
+            <div class="textos">
+                <h1 class="bem-vindo">Bem-vindo</h1>
+                <p>Preencha os dados para login</p>
+            </div>
+            <form id="formulario-login" method="POST">
+                <label for="email-login">Insira o e-mail:</label>
+                <div class="form-inp">
+                    <input type="email" id="email-login" name="email-login" required>
+                </div>
+                
+                <label for="senha-login">Insira a senha:</label>
+                <div class="form-inp">
+                    <input type="password" id="senha-login" name="senha-login" required>
+                </div>
+    
+                <div id="msg-login"></div>
+                
+                
+                <button type="submit" id="submit-login">Entrar</button>
+                <div class="link">
+                    <p>Não tem conta? <a href="/cadastro/index.html">Cadastre-se</a></p>
+                </div>
+            </form>
+            
         </div>
-        <form id="formulario-login" method="POST">
-            <label for="email-login">E-mail:</label>
-            <div class="form-inp">
-                <input type="email" id="email-login" name="email-login" required>
-            </div>
-            
-            <label for="senha-login">Senha:</label>
-            <div class="form-inp">
-                <input type="password" id="senha-login" name="senha-login" required>
-            </div>
-
-            <div id="msg-login"></div>
-            
-            
-            <button type="submit" id="submit-login">Entrar</button>
-            <div class="link">
-                <p><a href="/cadastro/index.html">Inscreva-se no VillaMusic</a></p>
-            </div>
-        </form>
-        
+    </div>
+    <div class="box2">
+        <div class="caixa">
+            <h1>Conecte-se e apresente sua música!</h1>
+            <p>Descubra oportunidades infinitas com sua música. Entre nessa com a gente</p>
+        </div>
     </div>
 </body>
 </html>
