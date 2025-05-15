@@ -10,51 +10,76 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="top">
-                <ul>
-                    <li><img src="/imagens/spotify2.png" alt="spotify-img" class="logo"></li>
-                    <li>Home</li>
-                    <li><a href="/musicas/musicas.html">Músicas</a></li>
-                    <li>Minha conta</li>
-                </ul>
-            </div>
-        </nav>
+     <header class="header">
+          <div class="logo-group">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" id="svg"> 
+            <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/>
+        </svg>
+        <img src="/imagens/logo.png" alt="Villa Music Logo" class="logo">
+    </div>
+
+    <nav>
+        <ul class="nav-links">
+            <li class="active">Home</li>
+            <li><a href="/musicas/musicas.html">Minhas Músicas</a></li>
+        </ul>
+    </nav>
+
+    <div id="profile">
+        <img src="/imagens/passardefoguetao.jpg" alt="Foto de perfil">
+        <span>Matheus Wilson</span>
+    </div>
     </header>
-    <h1>Músicas e Bandas</h1>
-    <!-- Seção principal do conteúdo -->
-    <main>
-        <!-- Artigo ou seção específica -->
-        <article>
-            <h2></h2>
-            <section class="box-musicas">
-                <!-- primeira box -->
-                <h3 class="box-text">Top 10 das mais tocadas</h3>
-                <p class="box-img">*UMA IMAGEM*</p>
-                
-                <!-- segunda box -->
-                <h3 class="box-text">Músicas mais tocadas no mês</h3>
-                <p class="box-img">*UMA IMAGEM*</p>
 
-                <!-- terceira box -->
-                <h3 class="box-text">Músicas mais tocadas no mês</h3>
-                <p class="box-img">*UMA IMAGEM*</p>
+    <section class="search-container">
+        <input type="text" placeholder="Type your search here">
+        <button>🔍</button>
+    </section>
 
-            </section>
+    <main class="main-content">
+        <div class="top-artists">
+            <h2>Top Artists <span>Ver tudo</span></h2>
+            <div class="artist-grid">
+                <div class="artist-card">
+                    <img src="/imagens/thebox.jpg" alt="Omah Lay">
+                    <p>The Box</p>
+                    <small>8.5M Plays</small>
+                </div>
+            </div>
+        </div>
 
-            <footer>
-                <p></p>
-            </footer>
-        </article>
-
-        <aside>
-            <h2></h2>
-            <p></p>
-        </aside>
+        <div class="billboard">
+            <h2>Billboard Topchart <span>Ver tudo</span></h2>
+            <div class="album-grid">
+                <div class="album-card">
+                    <img src="/imagens/racionais.jpg" alt="racionais">
+                    <p>Racionais</p>
+                    <small>A vida é um desafio</small>
+                </div>
+            </div>
+        </div>
     </main>
-    <footer>
-        <p></p>
+
+    <footer class="music-player">
+        <div class="track-info">
+            <img src="/imagens/racionais.jpg" alt="racionais">
+            <div>
+                <p>Racionais</p>
+                <small>A vida é um desafio</small>
+            </div>
+        </div>
+        <div class="controls">
+            <button>⏮</button>
+            <button>▶️</button>
+            <button>⏭</button>
+        </div>
+        <div class="track-info">
+            <img src="/imagens/racionais.jpg" alt="racionais">
+            <div>
+                <p>Racionais</p>
+                <small>A vida é um desafio</small>
+            </div>
+        </div>
     </footer>
 </body>
 

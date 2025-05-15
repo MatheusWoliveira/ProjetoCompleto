@@ -1,63 +1,167 @@
-body{
-    padding: 0;
+body {
     margin: 0;
-    background: rgb(44,12,51);
-    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    color: #fff;
 }
 
-main{
-    color: white;
+.header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background-color: #111;
+    padding: 1rem 1.5rem;
 }
 
-
-header{
-    padding: 10px;
-    background: rgb(48,45,44);
-    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%)
-}
-
-.top ul{
+.logo-group {
     display: flex;
-    justify-content: space-around;
-    list-style: none;
+    align-items: center;
+    gap: 10px; 
+    
 }
 
-.top ul li a{
-    text-decoration: none;
-    color: black;
-}
-
-.top ul li a:hover{
-    color: white;
-}
-
-.top ul li:hover{
-    color: white;
-}
-
-li{
+.logo-group #svg{
     cursor: pointer;
-    font-size: 25px;
 }
 
-.logo{
-    width: 30px;
-    height: 35px;
+.logo {
+    height: 40px;
 }
 
-h1{
-    text-align: center;
-    color: white;
-}
-
-.box-musicas{
+.header nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-.box-img{
-    display: block;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
 }
 
-/* FALTA ALINHAR AS CAIXAS(IMG EM BAIXO DO TEXTO) */
+.nav-links li {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links .active {
+    color: black;
+    background-color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+}
+
+#profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+#profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.search-container input {
+    width: 50%;
+    padding: 0.6rem;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.search-container button {
+    margin-left: -2.5rem;
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+}
+
+.main-content {
+    padding: 2rem;
+}
+
+.top-artists,
+.billboard {
+    background-color: #1a1a1a;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+}
+
+.top-artists h2,
+.billboard h2 {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.artist-grid,
+.album-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.artist-card,
+.album-card {
+    text-align: center;
+    width: 120px;
+}
+
+.artist-card img,
+.album-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.music-player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 1rem 2rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.track-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.controls button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}

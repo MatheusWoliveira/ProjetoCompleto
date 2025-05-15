@@ -1,107 +1,182 @@
-body{
+/* loginStyle.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
     display: flex;
-    justify-content: center;
-    text-align: center;
-    background: rgb(44,12,51);
-    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
-}
-
-.textos{
+    height: 100vh;
+    background-color: #0f0f1a;
     color: white;
-    margin-top: 20px;
 }
 
-.form-container{
-    margin-top: 90px;
-    display: grid;
-    place-items: center;
-    position: relative;
-    width: 400px;
-    height: 472px;
-    padding: 25px;
-    background: rgb(48,45,44);
-    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%);
-    border-radius: 15px;
-}
-
-h1{
-    text-align: center;
-    line-height: 1;
-}
-
-.bem-vindo{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-}
-
-#formulario-login{
+.box1 {
+    width: 50%;
+    background-color: #1f1f1f;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
 }
 
-label{
-    text-align: left;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-top: 15px;
-    color: white;
+.logo img{
+    height: 100px;
+    text-align: center;
+    margin-bottom: 75px;
+    margin-left: 150px;
 }
 
-.form-inp input{
-    padding: 11px 25px;
-    background: rgb(170,163,161);
-    background: rgb(170,163,161);
-    background: linear-gradient(90deg, rgba(170,163,161,1) 70%, rgba(255,255,255,1) 84%, rgba(161,151,151,1) 99%);
-    border: none;
-    line-height: 1;
-    border-radius: 8px;
-    color: #ffffff;
-}
-
-input:hover{
-    background: linear-gradient(90deg, rgba(170,163,161,1) 60%, rgba(255,255,255,1) 80%, rgba(161,151,151,1) 99%);
-}
-
-/* .form-inp input{
+.form-container {
     width: 100%;
-    background: none;
-    font-size: 13.4px;
-    color: #00ff7f; 
-    border: none;
-    padding: 0;
-    margin: 0;
-}  */
-
-button{
-    margin-top: 15px;
-    padding: 11px;
-    border-radius: 12px;
-    border: 1px solid white;
-    background-color: white;
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    cursor: pointer;
+    max-width: 400px;
 }
 
-button:hover{
-    background-color: rgb(5, 75, 5);
-    color: white;
-    border: none;
+.textos {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
 }
 
-.link a{
-    text-decoration: none;
-    text-align: left;
-    color: white;
+.textos h1 {
+    font-size: 23px;
+    color: #fff;
+    
 }
 
-/* img{
-    width: 20px;
-    height: 25px;
-} */
+.textos p{
+    margin-top: 7px;
+    font-size: 14px;
+}
 
-#msg-login{
+.bem-vindo {
+    font-size: 22px;
+    font-weight: bold;
     margin-top: 10px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(0, 0, 0);
+}
+
+.form-container label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #aaa;
+}
+
+.form-inp {
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #2e2e2e;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+}
+
+#submit-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #7b4dff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+#submit-login:hover {
+    background-color: #673de6;
+}
+
+.link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link a {
+    color: #673de6;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}
+
+.google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ffffffb3;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.google-login:hover {
+    color: white;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+.box2 {
+    width: 50%;
+    background-image: url(../imagens/img_fundo5.jpeg);
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+    color: white;
+    text-align: center;
+}
+
+
+.box2 h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.box2 p {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #ccc;
+}
+
+.box2 .carrossel {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.caixa{
+    background-color: rgba(0, 0, 0, 0.872); 
+    padding: 70px 40px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
