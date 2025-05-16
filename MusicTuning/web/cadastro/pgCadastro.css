@@ -1,121 +1,121 @@
 body {
-    font-family: Arial, sans-serif;
-    background: rgb(44,12,51);
-    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .form-container h1{
-    text-align: center;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #0f0f1a;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
-  .form-container {
-    background: rgb(48,45,44);
-    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%);
-    color: white;
-    padding: 20px;
-    width: 400px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 5px;
-  }
-  
-  input {
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 5px;
-    background: rgb(170,163,161);
-    background: rgb(170,163,161);
-    background: linear-gradient(90deg, rgba(170,163,161,1) 22%, rgba(255,255,255,1) 84%, rgba(161,151,151,1) 99%);
-    color: white;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+.form-container {
+  background: linear-gradient(45deg, rgba(30, 24, 36, 1) 0%, rgba(54, 39, 68, 1) 100%);
+  color: white;
+  padding: 30px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
 
-  input:hover{
-    background: linear-gradient(90deg, rgba(170,163,161,1) 22%, rgba(255,255,255,1) 70%, rgba(161,151,151,1) 99%);
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, rgba(100, 95, 104, 1) 0%, rgba(134, 125, 143, 1) 100%);
+  color: white;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: #e0e0e0;
+}
+
+input:hover {
+  background: linear-gradient(90deg, rgba(120, 115, 124, 1) 0%, rgba(155, 145, 165, 1) 100%);
+}
+
+button {
+  padding: 12px 20px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: rgb(5, 75, 5);
+  color: white;
+}
+
+#msg {
+  display: none;
+  width: 100%;
+  max-width: 373px;
+  margin: 20px auto 0;
+  padding: 15px;
+  border-radius: 8px;
+  background-color: #ff4d4d;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  button {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 10px 20px;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  button:hover{
-    background-color: rgb(5, 75, 5);;
-    color: white;
-  }
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    h1{
-      color: white;
-      margin-left: 98px;
-    }
+img {
+  width: 20px;
+  height: 25px;
+}
 
-    img{
-      width: 20px;
-      height: 25px;
-  }
-  
-    /* #msg{
-      margin-top: 15px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-      color: black;
-    } */
+.link {
+  margin-top: 20px;
+  text-align: right;
+}
 
-    #msg {
-      display: none; 
-      width: 100%;
-      max-width: 373px;
-      margin: 10px auto;
-      margin-top: 20px;
-      padding: 15px;
-      border-radius: 8px;
-      background-color: #ff4d4d; 
-      color: white;
-      font-weight: bold;
-      text-align: center;
-      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
-      from {
-          opacity: 0;
-          transform: translateY(-10px);
-      }
-      to {
-          opacity: 1;
-          transform: translateY(0);
-      }
-  }
-  
+.link a {
+  color: #a3a3ff;
+  text-decoration: none;
+}
 
-    .form-container .link{
-      text-align: right;
-    }
-
-    .topo{
-      display: flex;
-    }
-
-    .link{
-      margin-top: 26px;
-    }
+.link a:hover {
+  text-decoration: underline;
+}
