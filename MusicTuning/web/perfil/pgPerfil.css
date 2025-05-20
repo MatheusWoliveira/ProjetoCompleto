@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: #111;
+  background-color: #000;
   color: white;
 }
 
@@ -10,17 +10,22 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #222;
+ background-color: #111;
 }
 
 .header .logo {
   width: 50px;
+  border-radius: 100%;
 }
 
 .header nav a {
   margin: 0 1rem;
   color: white;
   text-decoration: none;
+}
+
+.header nav a:hover{
+  color: #00ff88;
 }
 
 .user-profile {
