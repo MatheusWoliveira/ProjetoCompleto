@@ -19,10 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const logoSvg = document.getElementById("profile");
+    const perfil = document.querySelector(".spanOne");
 
-    if (logoSvg) {
-        logoSvg.addEventListener("click", () => {
+    if (perfil) {
+        perfil.addEventListener("click", () => {
             window.location.href = "../perfil/pgPerfil.html"; 
         });
     }
