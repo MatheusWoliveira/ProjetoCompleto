@@ -6,29 +6,65 @@
     <title>Músicas</title>
     <link rel="shortcut icon" href="imagens/spotify.ico" type="image/x-icon">
     <link rel="stylesheet" href="musicas.css">
-    <script src="scriptMusicas.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
     <header>
-        <img src="/imagens/logo1.jpg" alt="Logo Spotify" class="logo">
         <nav class="top">
             <ul>
-                <li><a href="/logado/pgLogado.html" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Músicas</a></li>
+                <li><img src="/imagens/logo1.jpg" alt="Logo Spotify" class="logo"></li>
+                    <div class="Paginas">
+                        <li><a href="/logado/pgLogado.html" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#" class="nav-link"><i class="fas fa-music"></i>Músicas</a></li>
+                    </div>
+                    <div class="icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fas fa-cog"></i></a>
+                        <div class="perfil-usuario">
+                        <li><a href="../perfil/pgPerfil.html" class="nav-link">
+                            <img src="/imagens/passardefoguetao.jpg" alt="Usuário">Matheus Wilson</a></li>
+                        </div>
+                    </div>
+                
             </ul>
         </nav>
-
-        <div id="perfil">
-            <img src="/imagens/passardefoguetao.jpg" alt="Foto de perfil">
-            <span class="spanOne">Matheus Wilson</span>
-        </div>
     </header>
 
     <main class="grid-container">
         <div class="box">
-            <iframe src="https://www.youtube.com/embed/52NT9cSWC_8?si=PyhQCnFZrlHZSp1N" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-            <h2 class="texto">Racionais Mc's - A Vida é Desafio</h2>
+            <div class="album">
+                <i class='bx bx-music'></i>
+              </div> 
+              <audio id="player" src=""></audio>
+              <div class="controls">
+                <button id="prevButton"> <i class="fas fa-angle-double-left"|></i></button>
+                <button id="playPauseButton"><i class='bx bx-caret-right'></i></button>
+                <button id="nextButton"><i class="fas fa-angle-double-right"></i></button>
+              </div>
+              <div class="music-info">
+                <p><span id = "musicName"></span></p> 
+                <p>CD</p>
+                <button id="icons-heart"><i class="fas fa-heart"></i></button>
+                
+                </div>
+              
+                <div class="time">
+                  <span id="currentTime">0:00</span>
+                  <div class="footer">
+                    <div class="progress-bar">
+                      <div class="progress">
+                    </div>
+                </div>
+                </div>
+                <span id="duration">0:00</span>
+                <button id="icons-share"><i class="fas fa-share"></i></button>
+              </div>
+            </div>
         </div>
+ 
 
         <div class="box">
             <iframe src="https://www.youtube.com/embed/84IgwzZ7Rmo?si=MoCUdc0MQy8djgB8" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
@@ -42,5 +78,6 @@
 
         <!-- Você pode duplicar mais blocos "box" conforme necessário -->
     </main>
+    <script type="module" src="musicas.js"></script>
 </body>
 </html>

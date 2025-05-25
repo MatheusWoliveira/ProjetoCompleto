@@ -1,53 +1,77 @@
+*{
+    box-sizing: border-box;
+}
 body {
     padding: 0;
-    margin: 0;
-    background-color: #000;
-    background-image: url(../imagens/img_fundo.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,;
 }
+
 
 header {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    background-color: #111;
-    padding: 1rem 1.5rem;
-    color: white;
-}
-
-
-#perfil {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 0.5rem;
-}
-
-#perfil img {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-}
-
-.spanOne:hover{
-    cursor: pointer;
-    color: #1DB954;
-    transition: 0.3s;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%);
+    border-radius: 50px;
+    border: solid white 1px;
 }
 
 .top ul {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
     list-style: none;
     margin: 0;
-    padding: 0;
 }
+.Paginas{
+    display: flex;
+    gap: 20px;
+
+}
+.icons {
+    display: flex;
+    align-items: center;
+    gap:10px; 
+}
+.icons a i {
+    font-size: 20px;
+    padding: 4px;
+    transition: transform 0.2s ease;
+}
+
+.icons a:hover i {
+    transform: scale(1.2);
+}
+
+a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px; 
+    margin: 2px;
+    border: 1px solid transparent; 
+    border-radius: 25px;
+    transition: all 0.3s ease; 
+    will-change: transform;
+}
+
+
+a:hover {
+    color: black;
+    transform: scale(1.1); 
+    border-color: rgba(0, 0, 0, 0.2); 
+    background-color: rgba(255, 255, 255, 0.851);
+    border: 1px solid #444;
+}
+
+li a img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 
 .top ul li {
     font-size: 20px;
@@ -56,12 +80,12 @@ header {
 
 .nav-link {
     text-decoration: none;
-    color: white;
-    transition: 0.3s;
+    padding: 5px;
+    
 }
 
 .nav-link:hover {
-    color: #1DB954;
+    color: black;
 }
 
 .logo {
@@ -70,14 +94,130 @@ header {
     border-radius: 100%;
 }
 
-
+/* GRID de caixas de música */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
     padding: 30px 40px;
 }
+.album {
+    background-color: #f7f7f7;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  
+  .album i {
+    font-size: 200px;
+    
+  }
+ .music-info{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family:'Inter',sans-serif;
+    font-weight: bold; 
+  }
 
+  .music-info p {
+    margin: 5px;
+  }
+  
+  .musicName {
+    color: white;
+    white-space: nowrap; 
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+  }
+
+  .controls {
+    display: flex;
+    justify-content:space-between ;
+    margin-top: 20px;
+  }
+  
+  .controls button {
+    border: none;
+    cursor: pointer;
+    background-color: #121212;
+    color: white;
+  }
+  
+  .controls i {
+    font-size: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all .2s;
+    justify-items: space-between;
+  }
+  
+  .controls i:hover {
+    background-color: rgb(84, 83, 83);
+  }
+  
+  .time {
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+    gap: 10px;
+  }
+  
+  .time span {
+    font-size: 15px;
+    color: #333;
+  }
+  
+  .footer {
+    width: 50%;
+    
+  }
+  
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    background-color: #444;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .progress {
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  
+}
+  
+  #icons-heart{
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  #icons-share{
+    
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+  }
+
+  i.fas.fa-share{
+    justify-self: flex-end;
+    
+  }
+ 
 .box {
     background-color: #121212;
     border-radius: 15px;
@@ -86,7 +226,8 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    height: auto;
+    padding: 20px;
 }
 
 iframe {
