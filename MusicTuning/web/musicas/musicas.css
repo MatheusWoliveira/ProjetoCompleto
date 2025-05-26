@@ -1,246 +1,309 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 body {
-    padding: 0;
-    background: linear-gradient(90deg, rgba(44,12,51,1) 0%, rgba(33,9,48,1) 43%, rgba(50,21,60,1) 99%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif,;
+  padding: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(44, 12, 51, 1) 0%,
+    rgba(33, 9, 48, 1) 43%,
+    rgba(50, 21, 60, 1) 99%
+  );
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 header {
-    padding: 15px 30px;
-    background: linear-gradient(45deg, rgba(48,45,44,1) 11%, rgb(69, 68, 71) 37%, rgba(66,52,70,1) 99%);
-    border-radius: 50px;
-    border: solid white 1px;
+  padding: 15px 30px;
+  background: linear-gradient(
+    45deg,
+    rgba(48, 45, 44, 1) 11%,
+    rgb(69, 68, 71) 37%,
+    rgba(66, 52, 70, 1) 99%
+  );
+  border-radius: 50px;
+  border: solid white 1px;
 }
 
 .top ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-    margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
 }
-.Paginas{
-    display: flex;
-    gap: 20px;
-
+.Paginas {
+  display: flex;
+  gap: 20px;
 }
 .icons {
-    display: flex;
-    align-items: center;
-    gap:10px; 
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 .icons a i {
-    font-size: 20px;
-    padding: 4px;
-    transition: transform 0.2s ease;
+  font-size: 20px;
+  padding: 4px;
+  transition: transform 0.2s ease;
 }
 
 .icons a:hover i {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px; 
-    margin: 2px;
-    border: 1px solid transparent; 
-    border-radius: 25px;
-    transition: all 0.3s ease; 
-    will-change: transform;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px;
+  margin: 2px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  will-change: transform;
 }
-
 
 a:hover {
-    color: black;
-    transform: scale(1.1); 
-    border-color: rgba(0, 0, 0, 0.2); 
-    background-color: rgba(255, 255, 255, 0.851);
-    border: 1px solid #444;
+  color: black;
+  transform: scale(1.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.851);
+  border: 1px solid #090808;
 }
 
-li a img{
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
+li a img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
-
 
 .top ul li {
-    font-size: 20px;
-    color: white;
+  font-size: 20px;
+  color: white;
+}
+.top ul > li {
+  flex: 0.3;
 }
 
 .nav-link {
-    text-decoration: none;
-    padding: 5px;
-    
+  text-decoration: none;
+  padding: 5px;
 }
 
 .nav-link:hover {
-    color: black;
+  color: black;
 }
 
 .logo {
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+}
+.container-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
 }
 
+.container-buttons i{
+  font-size: 25px;
+}
+.container-buttons button{
+  display: flex;
+  color: white;
+  background-color: #333;
+  border: 1px solid rgb(255, 255, 255);
+  margin: 10px ;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family:'Poppins';
+  font-weight: bold;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+}
+i.bx.bx-plus{
+  color: black;
+  font-weight: bold;
+  background-color: rgb(140, 101, 248);
+  border-radius: 20px;
+}
+
+i.bx.bx-x{
+  color: black;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.container {
+  background-color: #333;
+  border: 1px solid white;
+  border-radius: 50px;
+  margin: 50px;
+ 
+}
 /* GRID de caixas de música */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-    padding: 30px 40px;
+  
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 30px 40px;
 }
 .album {
-    background-color: #f7f7f7;
-    width: 100%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    padding: 5px;
-  }
-  
-  .album i {
-    font-size: 200px;
-    
-  }
- .music-info{
-    display: flex;
-    flex-direction: column;
-    color: white;
-    font-family:'Inter',sans-serif;
-    font-weight: bold; 
-  }
+  background-color: #f7f7f7;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  padding: 5px;
+}
 
-  .music-info p {
-    margin: 5px;
-  }
-  
-  .musicName {
-    color: white;
-    white-space: nowrap; 
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 15px;
-  }
+.album i {
+  font-size: 200px;
+}
+.music-info {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: bold;
+}
 
-  .controls {
-    display: flex;
-    justify-content:space-between ;
-    margin-top: 20px;
-  }
-  
-  .controls button {
-    border: none;
-    cursor: pointer;
-    background-color: #121212;
-    color: white;
-  }
-  
-  .controls i {
-    font-size: 30px;
-    padding: 5px;
-    border-radius: 50%;
-    transition: all .2s;
-    justify-items: space-between;
-  }
-  
-  .controls i:hover {
-    background-color: rgb(84, 83, 83);
-  }
-  
-  .time {
-    display: flex;
-    align-items: center;
-    justify-content: inherit;
-    gap: 10px;
-  }
-  
-  .time span {
-    font-size: 15px;
-    color: #333;
-  }
-  
-  .footer {
-    width: 50%;
-    
-  }
-  
-  .progress-bar {
-    flex: 1;
-    height: 6px;
-    background-color: #444;
-    position: relative;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  .progress {
+.music-info p {
+  margin: 5px;
+}
+
+.musicName {
+  color: white;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.controls button {
+  border: none;
+  cursor: pointer;
+  background-color: #121212;
+  color: white;
+}
+
+.controls i {
+  font-size: 30px;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  justify-items: space-between;
+}
+
+.controls i:hover {
+  background-color: rgb(84, 83, 83);
+}
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: inherit;
+  gap: 10px;
+}
+
+.time span {
+  font-size: 15px;
+  color: #333;
+}
+
+.footer {
+  width: 50%;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background-color: #444;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.progress {
   height: 8px;
   background-color: #ffffff;
   border-radius: 2px;
-  
 }
-  
-  #icons-heart{
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  #icons-share{
-    
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    background-color: transparent;
-    border: none;
-    font-size: 20px;
-  }
 
-  i.fas.fa-share{
-    justify-self: flex-end;
-    
-  }
- 
+#icons-heart {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+#icons-share {
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+i.fas.fa-share {
+  justify-self: flex-end;
+}
+
 .box {
-    background-color: #121212;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto;
-    padding: 20px;
+  background-color: #121212;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  padding: 20px;
 }
 
 iframe {
-    width: 100%;
-    height: 50%;
-    border: none;
+  width: 100%;
+  height: 50%;
+  border: none;
 }
 
 .texto {
-    text-align: center;
-    padding: 15px;
-    font-size: 16px;
-    color: white;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  font-family: "Roboto", sans-serif;
 }
+button#anterior{
+
+ width: min-content;
+
+}
+
+button#proxima{
+  
+  width: min-content;
+}
+
+
+

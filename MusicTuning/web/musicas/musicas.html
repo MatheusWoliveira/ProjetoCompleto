@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Músicas</title>
+    <script type="module" src="controlsmusicas.js" defer></script>
     <link rel="shortcut icon" href="imagens/spotify.ico" type="image/x-icon">
     <link rel="stylesheet" href="musicas.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -28,12 +29,15 @@
                             <img src="/imagens/passardefoguetao.jpg" alt="Usuário">Matheus Wilson</a></li>
                         </div>
                     </div>
-                
             </ul>
         </nav>
     </header>
-
-    <main class="grid-container">
+    <div class="container-buttons">
+        <button class="Adicionar">Lançar Musica<i class='bx bx-plus'></i></button>
+        <button class="Apagar">Apagar<i class='bx bx-x'></i></button>
+    </div>
+    <div class="container">
+    <main id="items" class="grid-container">
         <div class="box">
             <div class="album">
                 <i class='bx bx-music'></i>
@@ -46,7 +50,6 @@
               </div>
               <div class="music-info">
                 <p><span id = "musicName"></span></p> 
-                <p>CD</p>
                 <button id="icons-heart"><i class="fas fa-heart"></i></button>
                 
                 </div>
@@ -63,21 +66,37 @@
                 <button id="icons-share"><i class="fas fa-share"></i></button>
               </div>
             </div>
-        </div>
- 
-
         <div class="box">
             <iframe src="https://www.youtube.com/embed/84IgwzZ7Rmo?si=MoCUdc0MQy8djgB8" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
             <h2 class="texto">MC Don Juan, MC Kevin e MC Ryan SP - Passar de Foguetão</h2>
         </div>
 
+         <div class="box">
+            <iframe src="https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            <h2 class="texto">MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2</h2>
+        </div>
+         <div class="box">
+            <iframe src="https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            <h2 class="texto">MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2</h2>
+        </div>
+         <div class="box">
+            <iframe src="https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            <h2 class="texto">MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2</h2>
+        </div>
         <div class="box">
             <iframe src="https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
             <h2 class="texto">MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2</h2>
         </div>
-
-        <!-- Você pode duplicar mais blocos "box" conforme necessário -->
+       
+        
+        
+            <!-- Você pode duplicar mais blocos "box" conforme necessário -->
+         </div>
+          
+        </div>
     </main>
-    <script type="module" src="controlsmusicas.js"></script>
+    
+
+    
 </body>
 </html>

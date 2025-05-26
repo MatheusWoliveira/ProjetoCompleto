@@ -32,6 +32,10 @@ const playPause = () => {
 
 player.ontimeupdate = () => updateTime();
 
+player.addEventListener("ended", () => {
+  prevNextMusic("next");
+});
+
 const updateTime = () => {
   const currentMinutes = Math.floor(player.currentTime / 60);
   const currentSeconds = Math.floor(player.currentTime % 60);
