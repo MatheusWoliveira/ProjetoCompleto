@@ -14,7 +14,7 @@ document.getElementById('formulario-login').addEventListener('submit', async (e)
     const data = await response.json();
     if (response.ok) {
         alert('Login bem-sucedido');
-        window.location.href = data.redirect; 
+        window.location.href = "/logado/pgLogado.html"; 
     } else {
         document.getElementById('msg-login').textContent = data.msg;
     }
