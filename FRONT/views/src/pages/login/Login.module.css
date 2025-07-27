@@ -1,0 +1,165 @@
+/* Login.module.css */
+
+.container {
+  display: flex;
+  height: 100vh;
+  background-color: #0f0f1a;
+  color: white;
+}
+
+.box1 {
+  width: 50%;
+  background-color: #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.logo img {
+  height: 100px;
+  text-align: center;
+  margin-bottom: 75px;
+  margin-left: 150px;
+  border-radius: 50%;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 400px;
+}
+
+.textos {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.textos h1 {
+  font-size: 23px;
+  color: #fff;
+}
+
+.textos p {
+  margin-top: 7px;
+  font-size: 14px;
+}
+
+.bemVindo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: block;
+  color: #aaa;
+}
+
+.formInp {
+  margin-bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #2e2e2e;
+  border: 1px solid #444;
+  border-radius: 5px;
+  color: white;
+  font-size: 14px;
+}
+
+.submitLogin {
+  width: 100%;
+  padding: 12px;
+  background-color: #7b4dff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+.submitLogin:hover {
+  background-color: #673de6;
+}
+
+.link {
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.link a {
+  color: #673de6;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+.googleLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ffffffb3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.googleLogin:hover {
+  color: white;
+}
+
+.googleIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.box2 {
+  width: 50%;
+  background-image: url('../assets/img_fundo5.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  color: white;
+  text-align: center;
+}
+
+.box2 h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.box2 p {
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+
+.caixa {
+  background-color: rgba(0, 0, 0, 0.872);
+  padding: 70px 40px;
+  border-radius: 10px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
