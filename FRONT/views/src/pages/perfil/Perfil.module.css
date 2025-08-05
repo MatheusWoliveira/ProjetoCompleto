@@ -24,9 +24,7 @@
   text-decoration: none;
 }
 
-.header nav a:hover {
-  color: #00ff88;
-}
+
 
 .userProfile {
   display: flex;
