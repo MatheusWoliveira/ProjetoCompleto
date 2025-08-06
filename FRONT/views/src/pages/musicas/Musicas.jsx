@@ -1,10 +1,11 @@
+// musicas/Musicas.jsx
 import styles from './Musicas.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import logo1 from '../../assets/logo1.jpg';
 import passardefoguetao from '../../assets/passardefoguetao.jpg';
-import Songs from './../../../../../BACK/database/songs';
+import songs from "../../database/songs";
 import React from "react";
-import MusicController from '../../../../../BACK/controllers/musicController';
+import MusicPlayer from "../../components/MusicController";
 
 
 export default function Musicas() {
