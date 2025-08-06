@@ -1,5 +1,8 @@
+//MusicController.jsx
 import React, { useState, useEffect, useRef } from 'react';
-import songs from '../database/songs'; // [{ name: 'Música 1', src: 'path/to/music.mp3' }, ...]
+import songs from "../database/songs"; // [{ name: 'Música 1', src: 'path/to/music.mp3' }, ...]
+
+
 
 const MusicPlayer = () => {
   const [index, setIndex] = useState(0);
