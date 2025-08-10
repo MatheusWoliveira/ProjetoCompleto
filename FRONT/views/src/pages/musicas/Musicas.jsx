@@ -1,79 +1,99 @@
-// musicas/Musicas.jsx
+// FRONT/views/src/pages/musicas/Musicas.jsx
 import styles from './Musicas.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import logo1 from '../../assets/logo1.jpg';
 import passardefoguetao from '../../assets/passardefoguetao.jpg';
-import songs from "../../database/songs";
-import React from "react";
-import MusicPlayer from "../../components/MusicController";
-
+import React, { useState, useEffect } from "react";
 
 export default function Musicas() {
   const navigate = useNavigate();
 
-  const videos = [
-    {
-      src: 'https://www.youtube.com/embed/84IgwzZ7Rmo?si=MoCUdc0MQy8djgB8',
-      title: 'MC Don Juan, MC Kevin e MC Ryan SP - Passar de Foguetão',
-    },
-    {
-      src: 'https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-',
-      title: 'MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2',
-    },
-    // Repete os mesmos vídeos apenas para exemplo
-    {
-      src: 'https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-',
-      title: 'MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2',
-    },
-    {
-      src: 'https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-',
-      title: 'MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2',
-    },
-    {
-      src: 'https://www.youtube.com/embed/7DV9SZgxegA?si=4-qBztkQWd20Vcj-',
-      title: 'MC Brinquedo, Tuto, Laranjinha, Cebezinho - The Box Funk 2',
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState({
+    titulo: '',
+    artista: '',
+    capa: null,
+    arquivo: null
+  });
+
+  const [musicas, setMusicas] = useState([]);
+
+  const fetchMusics = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/api/music');
+      const data = await response.json();
+      setMusicas(data);
+    } catch (err) {
+      console.error('Erro ao buscar músicas:', err);
     }
-  ];
-  
+  };
 
+  useEffect(() => {
+    fetchMusics();
+  }, []);
 
-        
+  const handleChange = (e) => {
+    const { name, files, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: files ? files[0] : value
+    }));
+  };
+
+  const handleUpload = async (e) => {
+    e.preventDefault();
+
+    if (!formData.titulo || !formData.artista || !formData.capa || !formData.arquivo) {
+      alert("Preencha todos os campos e selecione os arquivos.");
+      return;
+    }
+
+    const data = new FormData();
+    data.append('titulo', formData.titulo);
+    data.append('artista', formData.artista);
+    data.append('capa', formData.capa);
+    data.append('arquivo', formData.arquivo);
+
+    try {
+      const response = await fetch('http://localhost:3000/api/music/upload', {
+        method: 'POST',
+        body: data
+      });
+
+      const result = await response.json();
+      console.log('Resposta do servidor:', result);
+
+      if (response.ok) {
+        alert("Música enviada com sucesso!");
+        setShowModal(false);
+        setFormData({ titulo: '', artista: '', capa: null, arquivo: null });
+        fetchMusics();
+      } else {
+        alert(result.error || "Erro ao enviar música.");
+      }
+    } catch (err) {
+      console.error('Erro no envio:', err);
+      alert("Erro na comunicação com o servidor.");
+    }
+  };
+
   return (
-    
     <div>
-      
-      <link rel="shortcut icon" href="/imagens/spotify.ico" type="image/x-icon" />
-      <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+      {/* Header */}
       <header style={{ borderRadius: "50px" }}>
         <nav className={styles.top}>
           <ul>
-            <li>
-              <img src={logo1} alt="Logo Spotify" className={styles.logo} />
-            </li>
-
+            <li><img src={logo1} alt="Logo" className={styles.logo} /></li>
             <div className={styles.Paginas}>
-              <li>
-                <Link to="/logado/pgLogado" className={styles.navLink}>
-                  <i className="fas fa-home"></i> Home
-                </Link>
-              </li>
-              <li>
-                <a href="#" className={styles['nav-link']}>
-                  <i className="fas fa-music"></i> Músicas
-                </a>
-              </li>
+              <li><Link to="/logado/pgLogado" className={styles.navLink}>Home</Link></li>
+              <li><a href="#" className={styles['nav-link']}>Músicas</a></li>
             </div>
-
             <div className={styles.icons}>
               <a><i className="fab fa-instagram"></i></a>
               <a href="#"><i className="fas fa-cog"></i></a>
               <div className={styles['perfil-usuario']}>
                 <li>
-                  <Link to="/perfil" className={styles.spanOne} onClick={() => navigate('/perfil')}>
+                  <Link to="/perfil" className={styles.spanOne}>
                     <img src={passardefoguetao} alt="Usuário" /> Matheus Wilson
                   </Link>
                 </li>
@@ -83,65 +103,48 @@ export default function Musicas() {
         </nav>
       </header>
 
+      {/* Botões */}
       <div className={styles['container-buttons']}>
-        <button className={styles.Adicionar}>
-          Lançar Música <i className="bx bx-plus"></i>
-        </button>
-        <button className={styles.Apagar}>
-          Apagar <i className="bx bx-x"></i>
-        </button>
+        <button className={styles.Adicionar} onClick={() => setShowModal(true)}>Lançar Música</button>
+        <button className={styles.Apagar}>Apagar</button>
       </div>
 
+      {/* Modal */}
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modalContent}>
+            <h2>Lançar Nova Música</h2>
+            <form onSubmit={handleUpload} className={styles.uploadForm}>
+              <input type="text" name="titulo" placeholder="Título" value={formData.titulo} onChange={handleChange} required />
+              <input type="text" name="artista" placeholder="Artista" value={formData.artista} onChange={handleChange} required />
+              <input type="file" name="capa" accept="image/*" onChange={handleChange} required />
+              <input type="file" name="arquivo" accept="audio/*" onChange={handleChange} required />
+              <button type="submit">Enviar</button>
+              <button type="button" onClick={() => setShowModal(false)}>Cancelar</button>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Grid de músicas */}
       <div className={styles.container}>
         <main id="items" className={styles['grid-container']}>
-          <div className={styles.box}>
-            <div className={styles.album}>
-              <i className="bx bx-music"></i>
-            </div>
-
-            <audio id="player"></audio>
-
-            <div className={styles.controls}>
-              <button id="prevButton"><i className="fas fa-angle-double-left"></i></button>
-              <button id="playPauseButton"><i className="bx bx-caret-right"></i></button>
-              <button id="nextButton"><i className="fas fa-angle-double-right"></i></button>
-            </div>
-
-            <div className={styles.musicInfo}>
-              <p><span className={styles.musicName}></span></p>
-              <button className={styles.iconsheart}><i className="fas fa-heart"></i></button>
-            </div>
-
-            <div className={styles.time}>
-              <span id="currentTime">0:00</span>
-              <div className={styles.footer}>
-                <div className={styles.progressBar}>
-                  <div className={styles.progress}></div>
-                </div>
-              </div>
-              <span id="duration">0:00</span>
-              <button className={styles.iconsshare}><i className="fas fa-share"></i></button>
-            </div>
-          </div>
-
-          {videos.map((video, index) => (
+          {musicas.map((musica, index) => (
             <div className={styles.box} key={index}>
-              <iframe
-                src={video.src}
-                title={video.title}
-                allowFullScreen
-              ></iframe>
-              <h2 className={styles.texto}>{video.title}</h2>
+              <img
+                src={musica.capaUrl || '/fallback-capa.jpg'}
+                alt={musica.titulo}
+                style={{ width: '100%', borderRadius: '10px' }}
+              />
+              <h2 className={styles.texto}>{musica.titulo} - {musica.artista}</h2>
+              <audio controls style={{ width: '100%' }}>
+                <source src={musica.arquivoUrl} type="audio/mpeg" />
+                Seu navegador não suporta o elemento de áudio.
+              </audio>
             </div>
           ))}
         </main>
       </div>
-
-      
-      
     </div>
   );
-};
-
-
-
+}
