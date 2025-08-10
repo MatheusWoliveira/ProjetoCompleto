@@ -1,3 +1,4 @@
+// C:\VillaMusic\FRONT\views\src\pages\login\Login.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
@@ -22,6 +23,14 @@ const Login = () => {
             const data = await response.json();
 
             if (response.ok) {
+                // Salva token e dados do usuário no localStorage
+                if (data.token) {
+                    localStorage.setItem('token', data.token);
+                }
+                if (data.user) {
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                }
+
                 alert('Login bem-sucedido');
                 navigate('/logado/pgLogado'); 
             } else {
@@ -52,6 +61,7 @@ const Login = () => {
                                 className={styles.input}
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                required
                             />
                         </div>
                         <label className={styles.label}>Insira a senha:</label>
@@ -61,6 +71,7 @@ const Login = () => {
                                 className={styles.input}
                                 value={senha}
                                 onChange={(e) => setSenha(e.target.value)}
+                                required
                             />
                         </div>
                         {mensagem && <div>{mensagem}</div>}
@@ -78,7 +89,6 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
     );
 };
 

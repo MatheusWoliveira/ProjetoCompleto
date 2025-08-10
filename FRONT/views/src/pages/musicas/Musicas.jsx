@@ -18,17 +18,35 @@ export default function Musicas() {
 
   const [musicas, setMusicas] = useState([]);
 
+  const token = localStorage.getItem('token'); // token salvo no login
+
   const fetchMusics = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/music');
+      const response = await fetch('http://localhost:3000/api/music', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
       const data = await response.json();
-      setMusicas(data);
+      console.log("Músicas recebidas do backend:", data); // DEBUG
+
+      // Garante que cada música tenha _id mesmo que o backend mande outro nome
+      const normalizadas = data.map(m => ({
+        ...m,
+        _id: m._id || m.id || m.musicId
+      }));
+
+      setMusicas(normalizadas);
     } catch (err) {
       console.error('Erro ao buscar músicas:', err);
     }
   };
 
   useEffect(() => {
+    if (!token) {
+      navigate('/Musicas');
+      return;
+    }
     fetchMusics();
   }, []);
 
@@ -48,6 +66,12 @@ export default function Musicas() {
       return;
     }
 
+    const token = localStorage.getItem("token"); // recupera o token salvo no login
+    if (!token) {
+      alert("Você precisa estar logado para enviar música.");
+      return;
+    }
+
     const data = new FormData();
     data.append('titulo', formData.titulo);
     data.append('artista', formData.artista);
@@ -57,6 +81,9 @@ export default function Musicas() {
     try {
       const response = await fetch('http://localhost:3000/api/music/upload', {
         method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
         body: data
       });
 
@@ -69,13 +96,43 @@ export default function Musicas() {
         setFormData({ titulo: '', artista: '', capa: null, arquivo: null });
         fetchMusics();
       } else {
-        alert(result.error || "Erro ao enviar música.");
+        alert(result.error || result.msg || "Erro ao enviar música.");
       }
     } catch (err) {
       console.error('Erro no envio:', err);
       alert("Erro na comunicação com o servidor.");
     }
   };
+
+
+  const handleDelete = async (id) => {
+    if (!id) {
+      console.error("ID da música não fornecido!");
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`http://localhost:3000/api/music/${id}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Música deletada com sucesso!");
+        setMusicas(musicas.filter((musica) => musica._id !== id));
+      } else {
+        alert(data.msg || "Erro ao deletar música.");
+      }
+    } catch (error) {
+      console.error("Erro ao deletar música:", error);
+    }
+  };
+
 
   return (
     <div>
@@ -103,10 +160,9 @@ export default function Musicas() {
         </nav>
       </header>
 
-      {/* Botões */}
+      {/* Botão adicionar */}
       <div className={styles['container-buttons']}>
         <button className={styles.Adicionar} onClick={() => setShowModal(true)}>Lançar Música</button>
-        <button className={styles.Apagar}>Apagar</button>
       </div>
 
       {/* Modal */}
@@ -130,7 +186,7 @@ export default function Musicas() {
       <div className={styles.container}>
         <main id="items" className={styles['grid-container']}>
           {musicas.map((musica, index) => (
-            <div className={styles.box} key={index}>
+            <div className={styles.box} key={musica._id || index}>
               <img
                 src={musica.capaUrl || '/fallback-capa.jpg'}
                 alt={musica.titulo}
@@ -141,6 +197,14 @@ export default function Musicas() {
                 <source src={musica.arquivoUrl} type="audio/mpeg" />
                 Seu navegador não suporta o elemento de áudio.
               </audio>
+              <button
+                className={styles.Apagar}
+                onClick={() => handleDelete(musica._id)}
+                style={{ marginTop: '8px' }}
+              >
+                Apagar
+              </button>
+
             </div>
           ))}
         </main>
