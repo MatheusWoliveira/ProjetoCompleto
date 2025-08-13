@@ -50,9 +50,8 @@ export default function Perfil() {
                       <Link to="/logado/pgLogado" className={styles.navLink}>
                         <FontAwesomeIcon icon={faHome} /> Home
                       </Link>
-                      <a href="#" className={styles['nav-link']}>
-                       <FontAwesomeIcon icon={faMusic} />Minhas Músicas
-                      </a>
+                      <Link to="/musicas"><FontAwesomeIcon icon={faMusic} />Minhas Músicas</Link>
+          
                   </div>
                 </nav>
       

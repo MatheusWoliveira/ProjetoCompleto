@@ -1,8 +1,12 @@
+/* Cadastro.module.css */
+
 .formContainer {
   background: linear-gradient(135deg, #0a021a, #1c052a);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 40px 20px;
   font-family: 'Inter', sans-serif;
   color: white;
@@ -31,7 +35,7 @@
   font-weight: bold;
 }
 
-/* FORMULÁRIO */
+/* CAIXA DE CADASTRO */
 .cadastro {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -40,6 +44,13 @@
   width: 100%;
   max-width: 380px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cadastro h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .cadastro form {
@@ -62,11 +73,12 @@
   font-size: 0.95rem;
   color: white;
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
 
 .cadastro input:focus {
   border-color: #7c4dff;
+  background: rgba(255, 255, 255, 0.05);
 }
 
 /* BOTÃO */
@@ -97,4 +109,5 @@
   font-size: 0.9rem;
   color: #ffb3b3;
   max-width: 380px;
+  text-align: center;
 }
