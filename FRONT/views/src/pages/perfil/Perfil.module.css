@@ -5,25 +5,113 @@
   color: white;
 }
 
-.header {
+header {
+  padding: 10px 25px;
+  background: linear-gradient(
+    45deg,
+    rgba(48, 45, 44, 0.612) 11%,
+    rgba(69, 68, 71, 0.618) 37%,
+    rgba(66, 52, 70, 0.605) 99%
+  );
+  border-radius: 50px;
+  border: solid white 1px;
+  margin-top: 10px;
+}
+.logoGroup {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #111;
+  gap: 10px;
+
+}
+
+.svg {
+  cursor: pointer;
+  font-size: 10px;
 }
 
 .logo {
-  width: 50px;
+  height: 40px;
   border-radius: 100%;
 }
-
-.header nav a {
-  margin: 0 1rem;
-  color: white;
-  text-decoration: none;
+.top  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  font-size: 17px;
+}
+.Paginas {
+  display: flex;
+  gap: 15px;
+  margin-left: 220px ;
+}
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+.icons a {
+  padding: 7px;
+  transition: transform 0.2s ease;
 }
 
+.icons a:hover i {
+  transform: scale(1.2);
+}
+
+a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px;
+  margin: 2px;
+  border: 1px solid transparent;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  will-change: transform;
+}
+
+a:hover {
+  color: black;
+  transform: scale(1.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.851);
+  border: 1px solid #090808;
+}
+
+ a img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  
+}
+
+.top  {
+  
+  color: white;
+}
+.top {
+  flex: 0.3;
+}
+
+.nav-link {
+  text-decoration: none;
+  
+}
+
+.nav-link:hover {
+  color: black;
+}
+
+.logo {
+  height: 40px;
+  width:40px;
+  border-radius: 100%;
+}
 
 
 .userProfile {
@@ -110,6 +198,8 @@
   color: #00bfff;
 }
 
+
+
 .chart {
   grid-column: span 2;
 }
@@ -127,6 +217,7 @@
   list-style: none;
   padding: 0;
   margin-top: 1rem;
+  
 }
 
 .chart li {
@@ -134,6 +225,7 @@
   justify-content: space-between;
   font-size: 0.9rem;
   margin: 0.3rem 0;
+  
 }
 
 .musicPlayer {
@@ -169,3 +261,83 @@
   margin: 0 0.5rem;
   cursor: pointer;
 }
+.musicPlayer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    20deg,
+    rgba(48, 45, 44, 0.529) 11%,
+    rgba(69, 68, 71, 0.392) 37%,
+    rgba(59, 50, 61, 0.396) 99%
+  );
+  background-color: #1a1a1adc;
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 99%;
+  border-radius: 12px;
+  margin: 10px;
+  border: solid white 1px;
+  max-width: 1500px;
+  max-height: 100px;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  height: 4px;
+}
+
+.trackInfo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.controls{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-left: 50px;
+  
+}
+
+
+.controls button {
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer; 
+}
+
+
+  .trackInfo, .descricao_album_card1 p{
+    
+    font-weight: bold;
+    height: 2px;
+    margin-left: 25px;
+}
+  .trackInfo, .descricao_album_card p{
+    
+    font-weight: bold;
+    height: 2px;
+    margin-left: 25px;
+    
+}
+    .trackInfo, .descricao_album_card {
+      margin-bottom: 5px;
+    
+}
+ .trackInfo, .descricao_album_card1 {
+      margin-bottom: 5px;
+    
+}
+    
+  
+
+
+

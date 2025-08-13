@@ -16,34 +16,50 @@ header {
   padding: 10px 25px;
   background: linear-gradient(
     45deg,
-    rgba(48, 45, 44, 1) 11%,
-    rgb(69, 68, 71) 37%,
-    rgba(66, 52, 70, 1) 99%
+    rgba(48, 45, 44, 0.612) 11%,
+    rgba(69, 68, 71, 0.618) 37%,
+    rgba(66, 52, 70, 0.605) 99%
   );
   border-radius: 50px;
   border: solid white 1px;
   margin-top: 10px;
 }
+.logoGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 
-.top ul {
+}
+
+.svg {
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.logo {
+  height: 40px;
+  border-radius: 100%;
+}
+.top  {
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   margin: 0;
+  font-size: 17px;
 }
 .Paginas {
   display: flex;
-  gap: 20px;
+  gap: 15px;
+  margin-left: 220px ;
 }
-.icons {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.icons a i {
-  font-size: 20px;
-  padding: 4px;
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+.icons a {
+  padding: 7px;
   transition: transform 0.2s ease;
 }
 
@@ -73,24 +89,25 @@ a:hover {
   border: 1px solid #090808;
 }
 
-li a img {
+ a img {
   width: 32px;
   height: 32px;
   border-radius: 50%;
   object-fit: cover;
+  
 }
 
-.top ul li {
-  font-size: 20px;
+.top  {
+  
   color: white;
 }
-.top ul > li {
+.top {
   flex: 0.3;
 }
 
 .nav-link {
   text-decoration: none;
-  padding: 5px;
+  
 }
 
 .nav-link:hover {
@@ -98,9 +115,46 @@ li a img {
 }
 
 .logo {
-  width: 35px;
-  height: 35px;
+  height: 40px;
+  width:40px;
   border-radius: 100%;
+}
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e; 
+  border: 1px solid #555; 
+  border-radius: 20px; 
+  padding: 5px 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  
+}
+
+.inputWrapper input {
+  border: none;
+  outline: none; 
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  padding: 5px;
+}
+
+.inputWrapper input::placeholder {
+  color: #aaa;
+}
+
+.inputWrapper svg {
+  color: white;
+  font-size: 16px;
+  margin-left: 8px;
+  cursor: pointer;
 }
 .container-buttons{
     display: flex;
@@ -157,65 +211,6 @@ i.bx.bx-x{
   gap: 30px;
   padding: 30px 40px;
 }
-.album {
-  background-color: #f7f7f7;
-  width: 100%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.album i {
-  font-size: 200px;
-}
-.musicInfo {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  font-family: "Inter", sans-serif;
-  font-weight: bold;
-}
-
-.musicInfo p {
-  margin: 5px;
-}
-
-.musicName {
-  color: white;
-  white-space: nowrap;
-  width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 15px;
-}
-
-.controls {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.controls button {
-  border: none;
-  cursor: pointer;
-  background-color: #121212;
-  color: white;
-}
-
-.controls i {
-  font-size: 30px;
-  padding: 5px;
-  border-radius: 50%;
-  transition: all 0.2s;
-  justify-items: space-between;
-}
-
-.controls i:hover {
-  background-color: rgb(84, 83, 83);
-}
 
 .time {
   display: flex;
@@ -229,45 +224,7 @@ i.bx.bx-x{
   color: #333;
 }
 
-.footer {
-  width: 50%;
-}
 
-.progressBar {
-  flex: 1;
-  height: 6px;
-  background-color: #444;
-  position: relative;
-  border-radius: 5px;
-  overflow: hidden;
-}
-.progress {
-  height: 8px;
-  background-color: #ffffff;
-  border-radius: 2px;
-}
-
-.iconsheart {
-  color: rgb(255, 244, 244);
-  display: flex;
-  justify-content: flex-end;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-.iconsshare {
-  color: white;
-  display: flex;
-  justify-content: flex-end;
-  background-color: transparent;
-  border: none;
-  font-size: 20px;
-}
-
-i.fas.fa-share {
-  justify-self: flex-end;
-}
 
 .box {
   background-color: #121212;
@@ -305,5 +262,135 @@ button#proxima{
   
   width: min-content;
 }
+.mainContent {
+  margin: 75px;
+  background-color: #1a1a1a93;
+  padding: 1rem;
+  border: solid white 1px;
+  border-radius: 30px;
+}
+
+.topArtists,
+.billboard {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 20px;
+}
+
+.topArtists h2,
+.billboard h2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+}
+
+.artistGrid,
+.albumGrid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.artistCard,
+.albumCard {
+  text-align: center;
+  width: 120px;
+}
+
+.artistCard img,
+.albumCard img {
+  width: 100%;
+  height: 120px;
+  border-radius: 15px;
+}
+
+.artistCard,
+.albumCard p {
+  text-align: center;
+  width: 120px;
+
+}
+
+
+
+.musicPlayer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(
+    20deg,
+    rgba(48, 45, 44, 0.529) 11%,
+    rgba(69, 68, 71, 0.392) 37%,
+    rgba(59, 50, 61, 0.396) 99%
+  );
+  background-color: #1a1a1adc;
+  padding: 2rem;
+  position: fixed;
+  bottom: 0;
+  width: 99%;
+  border-radius: 12px;
+  margin: 10px;
+  border: solid white 1px;
+  max-width: 1500px;
+  max-height: 100px;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  height: 4px;
+}
+
+.trackInfo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+.controls{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-left: 50px;
+  
+}
+
+
+.controls button {
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer; 
+}
+
+
+  .trackInfo, .descricao_album_card1 p{
+    
+    font-weight: bold;
+    height: 2px;
+    margin-left: 25px;
+}
+  .trackInfo, .descricao_album_card p{
+    
+    font-weight: bold;
+    height: 2px;
+    margin-left: 25px;
+    
+}
+    .trackInfo, .descricao_album_card {
+      margin-bottom: 5px;
+    
+}
+ .trackInfo, .descricao_album_card1 {
+      margin-bottom: 5px;
+    
+}
+    
+  
+
 
 

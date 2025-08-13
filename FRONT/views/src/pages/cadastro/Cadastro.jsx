@@ -79,6 +79,7 @@ export default function Cadastro() {
         </a>
         <h1>VillaMusic</h1>
       </div>
+       <div className={styles.cadastro}>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nome">Nome completo:</label>
         <input type="text" name="nome" value={form.nome} onChange={handleChange} />
@@ -97,7 +98,7 @@ export default function Cadastro() {
 
         <button type="submit">Cadastrar</button>
       </form>
-
+      </div>
       {mensagem && <div className={styles.msg}>{mensagem}</div>}
     </div>
   );

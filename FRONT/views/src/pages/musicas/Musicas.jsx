@@ -1,12 +1,23 @@
 // FRONT/views/src/pages/musicas/Musicas.jsx
 import styles from './Musicas.module.css';
 import { Link, useNavigate } from 'react-router-dom';
-import logo1 from '../../assets/logo1.jpg';
 import passardefoguetao from '../../assets/passardefoguetao.jpg';
 import React, { useState, useEffect } from "react";
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faMusic } from '@fortawesome/free-solid-svg-icons';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import logo from '../../assets/logo1.jpg';
+import { FaRedoAlt, FaStepBackward, FaPlay, FaPause, FaStepForward, FaRandom, FaSearch } from 'react-icons/fa';
+import racionais from '../../assets/racionais.jpg';
 export default function Musicas() {
   const navigate = useNavigate();
+
+  function Search(formdata){
+    const query = formdata.get ('query');
+    alert (`You search for '${query}'`);
+  }
+
 
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
@@ -133,32 +144,69 @@ export default function Musicas() {
     }
   };
 
-
+   const irParaLogin = () => {
+    navigate('/');
+  };
+ const [isPlaying, setIsPlaying] = useState(false);
+    const handlePlayPause = () => {
+    setIsPlaying(!isPlaying);
+  };
   return (
     <div>
       {/* Header */}
-      <header style={{ borderRadius: "50px" }}>
+      <header>
         <nav className={styles.top}>
-          <ul>
-            <li><img src={logo1} alt="Logo" className={styles.logo} /></li>
+         
+               <div className={styles.logoGroup}>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="24px"
+                          viewBox="0 -960 960 960"
+                          width="24px"
+                          fill="#e3e3e3"
+                          className={styles.svg}
+                          onClick={irParaLogin}
+                        >
+                          <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+                        </svg>
+                        <img src={logo} alt="Logo" className={styles.logo} />
+                      </div>
+          
+          <nav>
             <div className={styles.Paginas}>
-              <li><Link to="/logado/pgLogado" className={styles.navLink}>Home</Link></li>
-              <li><a href="#" className={styles['nav-link']}>Músicas</a></li>
+                <Link to="/logado/pgLogado" className={styles.navLink}>
+                  <FontAwesomeIcon icon={faHome} /> Home
+                </Link>
+                <a href="#" className={styles['nav-link']}>
+                 <FontAwesomeIcon icon={faMusic} />Minhas Músicas
+                </a>
             </div>
+          </nav>
+
             <div className={styles.icons}>
-              <a><i className="fab fa-instagram"></i></a>
-              <a href="#"><i className="fas fa-cog"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                 <FontAwesomeIcon icon={faInstagram} />
+                </a>
+              <a href="#">
+               <FontAwesomeIcon icon={faCog} />
+                </a>
               <div className={styles['perfil-usuario']}>
-                <li>
-                  <Link to="/perfil" className={styles.spanOne}>
+              
+                  <Link to="/perfil" className={styles.spanOne} onClick={() => navigate('/perfil')}>
                     <img src={passardefoguetao} alt="Usuário" /> Matheus Wilson
                   </Link>
-                </li>
+             
               </div>
             </div>
-          </ul>
         </nav>
       </header>
+
+      <form action={Search} method="GET" className={styles.searchContainer}>
+        <div className={styles.inputWrapper}>
+        <input className='search' name="query" placeholder="Procure sua música" />
+        <FaSearch />
+        </div>
+        </form>
 
       {/* Botão adicionar */}
       <div className={styles['container-buttons']}>
@@ -209,6 +257,40 @@ export default function Musicas() {
           ))}
         </main>
       </div>
+       <footer className={styles.musicPlayer}>
+        <div className={styles.trackInfo}>
+          <img src={racionais} alt="Racionais" />
+          <div className={styles.descricao_album_card1}>
+            <p>Racionais</p>
+            <small>A vida é um desafio</small>
+          </div>
+        </div >
+        <div className={styles.controls}>
+          <button><FaRedoAlt style={{ color: "#fff", fontSize: 20, cursor: "pointer" }} /></button>
+          <button><FaStepBackward style={{ color: "#fff", fontSize: 20, cursor: "pointer" }} /></button>
+          <button><div
+        style={{ background: "#28B6D6", borderRadius: "20%", width: 40, height: 40, display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }}
+        onClick={handlePlayPause}
+      >
+        {isPlaying ? <FaPause style={{ color: "#fff", fontSize: 20 }} /> : <FaPlay style={{ color: "#fff", fontSize: 20 }} />}
+      </div>
+      </button>
+          <button><FaStepForward style={{ color: "#fff", fontSize: 20, cursor: "pointer" }} /></button>
+           <button><FaRandom style={{ color: "#fff", fontSize: 20, cursor: "pointer" }} /></button>
+        </div>
+          
+            <div className={styles.trackInfo}>
+           <div className={styles.descricao_album_card}>
+            <p>Racionais</p>
+            <small>A vida é um desafio</small>
+             </div>
+            <img src={racionais} alt="Racionais" />
+              
+        
+      
+       
+        </div>
+      </footer>
     </div>
   );
 }
